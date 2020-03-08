@@ -1,0 +1,33 @@
+html,body{
+    padding: 0px;
+    margin: 0px;
+    margin-left: 0px;
+    height: 100%;
+
+}
+
+body.container-fluid{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#header{
+    background: #126745;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-bottom: 5px solid #FDCB01;
+    min-height: 62px;
+}
+
+.navbar{
+    border-radius: 0;
+    margin-bottom: 10px;
+
+}
+
+#content{
+    padding: 15px}
+
+#menunav .activado{
+    background:#E7E7E7;
+}

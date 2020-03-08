@@ -1,0 +1,26 @@
+<header id="header">
+	   <img src="https://interfaces.osprera.org.ar:25270/ControlesNG/includes/images/logo.png" alt="" height="57" class="logo-large">    
+</header>
+
+<div id="menunav">
+	<nav class="navbar navbar-default">
+	  
+	    <div class="navbar-header">
+	      <a class="navbar-brand" [routerLink]="['/home']">Campañas</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li><a [routerLink]="['/operativos']" [routerLinkActive]="['activado']">Operativos</a></li>
+	      <li><a [routerLink]="['/fichas']" [routerLinkActive]="['activado']">Fichas</a></li>
+	      <li><a [routerLink]="['/reportes']" [routerLinkActive]="['activado']">Reportes</a></li>
+	    </ul>	  
+	</nav>
+
+</div>
+
+<router-outlet></router-outlet>
+
+
+
+
+
+
