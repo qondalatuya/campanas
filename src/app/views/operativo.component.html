@@ -1,39 +1,83 @@
 <div id="content">
 
 	<h2>Operativos Realizados</h2>	
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Tipo Operativo</th>
-				<th>Provincia</th>
-				<th>Localidad</th>
-				<th>Fecha Inicio</th>
-				<th>Fecha Fin</th>
-				<th>Finalizado</th>
+	<div class="jumbotron">
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>Tipo Operativo</th>
+					<th>Provincia</th>
+					<th>Localidad</th>
+					<th>Fecha Inicio</th>
+					<th>Fecha Fin</th>
+					<th>Finalizado</th>
+					<th> Acciones </th>
+				</tr>
+			</thead>
 
-				<th> Acciones </th>
-			</tr>
-		</thead>
+			<tbody>
+				<tr *ngFor="let operativo of operativos">
+					<td>{{operativo.tipo}}</td>
+					<td>{{operativo.provincia}}</td>
+					<td>{{operativo.localidad}}</td>
+					<td>{{operativo.fechaInicio}}</td>
+					<td>{{operativo.fechaFin}}</td>
+					<td>{{operativo.finalizado}}</td>			
+					<td> 
+						<div class="btn-group-xs">
+							<!-- pagina para ver los íconos de bootstrap https://getbootstrap.com/docs/3.3/components/-->
+							<button class="btn glyphicon glyphicon-expand"></button>
+							<button class="btn glyphicon glyphicon-pencil"></button>
+							<button class="btn glyphicon glyphicon-remove"></button>							
+						</div>
+					</td>
+				</tr>	
+			</tbody>
+		</table>
+	</div>
 
-		<tbody>
-			<tr *ngFor="let operativo of operativos">
-				<td>{{operativo.tipo}}</td>
-				<td>{{operativo.provincia}}</td>
-				<td>{{operativo.localidad}}</td>
-				<td>{{operativo.fechaInicio}}</td>
-				<td>{{operativo.fechaFin}}</td>
-				<td>{{operativo.finalizado}}</td>
-				
+	<br>
 
-				<td> 
-					<div class="btn-group-xs">
-						<!-- pagina para ver los íconos de bootstrap https://getbootstrap.com/docs/3.3/components/-->
-						<button class="btn glyphicon glyphicon-expand"></button>
-						<button class="btn glyphicon glyphicon-pencil"></button>
-					</div>
-				</td>
-			</tr>	
-		</tbody>
-	</table>
+	<h2>Nuevo Operativo</h2>
+	<div class="jumbotron">
+		<form #formOperativo="ngForm" (ngSubmit)="onSubmit()">
+			<div class="form-group">
+		      <label for="selTipo">Tipo de campaña (Seleccione una)</label>
+		      <select class="form-control" id="sel1">
+		        <option *ngFor="let tipo of tiposCampanas">{{tipo}}</option>
+		      </select>
+	  		</div>
 
+	  		<div class="form-group">
+		      <label for="selProv">Provincia</label>
+		      <select class="form-control" id="sel1">
+		        <option *ngFor="let provincia of provincias">{{provincia}}</option>
+		      </select>
+	  		</div>
+
+	  		<div class="form-group">
+		      <label for="sel1">Localidad</label>
+		      <select class="form-control" id="selLoc" >
+		        <option *ngFor="let localidad of localidades">{{localidad}}</option>
+		      </select>
+	  		</div>
+
+			<div class="input-group">
+		      <span class="input-group-addon">Descripcion</span>
+		      <input type="text" class="form-control" placeholder="Información adicional" 
+		      	#descripcion="ngModel" [(ngModel)]="nuevoOperativo.Descripcion" name="descripcion">
+		    </div>
+		    <br>
+
+		    <div class="input-group">
+		    	<span class="input-group-addon"> Fecha inicio</span>
+		    	<input id="inputInicio" type="text" class="form-control" name="inputDesc" placeholder="Fecha de inicio">
+		    	<span class="input-group-addon"> Fecha inicio</span>
+		    	<input id="inputInicio" type="text" class="form-control" name="inputDesc" placeholder="Fecha de finalización (si se conociera)">
+		    </div>
+		    <br>
+		    <input type="submit" name="btnAgregar" value="Agregar" class="btn btn-primary">
+		</form>
+
+	</div>
 </div>
