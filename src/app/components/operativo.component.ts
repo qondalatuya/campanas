@@ -38,6 +38,8 @@ export class OperativoComponent{
 	}
 
 	onSubmit(){
-			console.log(this.nuevoOperativo)
+			console.log(this.nuevoOperativo);
+			this._operativoService.agregar(this.nuevoOperativo);
+			this.nuevoOperativo=new Operativo(null,null,null,null,null,null,false);	
 	}
 }
