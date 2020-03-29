@@ -37,62 +37,10 @@
 	</div>
 
 	<br>
-
 	<h2>Nuevo Operativo</h2>
 	<div class="jumbotron">
-		<form #formOperativo="ngForm" (ngSubmit)="onSubmit();formOperativo.reset()">
-			<div class="form-group">
-		      <label for="selectTipo">Tipo de campaña (Seleccione una)</label>
-		      <select class="form-control"
-		      	name="tipo" id="selectTipo" 
-		      	#tipo="ngModel" [(ngModel)]="nuevoOperativo.tipo">
-		        	<option disabled selected>Selecciona un tipo</option>
-		        	<option *ngFor="let tipo of tiposCampanas">{{tipo}}</option>
-		      </select>
-	  		</div>
-
-	  		<div class="form-group">
-		      <label for="selectProvincia">Provincia</label>
-		      <select class="form-control" 
-		      	name="provincia" id="selectProvincia"
-		      	#provincia="ngModel" [(ngModel)]="nuevoOperativo.provincia">
-			        <option disabled selected>Selecciona la provincia</option>
-			        <option *ngFor="let provincia of provincias">{{provincia}}</option>
-		      </select>
-	  		</div>
-
-	  		<div class="form-group">
-		      <label for="selectLocalidad">Localidad</label>
-		      <select class="form-control" 
-		      	name ="localidad" id="selectLocalidad" 
-		      	#localidad="ngModel" [(ngModel)]="nuevoOperativo.localidad">
-			        <option disabled="true" selected="true"> Seleccione la localidad</option>
-			        <option *ngFor="let localidad of localidades">{{localidad}}</option>
-		      </select>
-	  		</div>
-
-			<div class="input-group">
-		      <span class="input-group-addon">Descripcion</span>
-		      <input type="text" class="form-control" 
-		      	placeholder="Información adicional" 
-		      	#descripcion="ngModel" [(ngModel)]="nuevoOperativo.Descripcion" name="descripcion">
-		    </div>
-		    <br>
-
-		    <div class="input-group">
-		    	<span class="input-group-addon"> Fecha inicio</span>
-		    	<input type="text" class="form-control"
-		    		id="inputFechaInicio" name="inputFechaInicio" placeholder="Fecha de inicio"
-		    		#fechaInicio="ngModel" [(ngModel)]="nuevoOperativo.fechaInicio">
-		    	
-		    	<span class="input-group-addon"> Fecha de fin</span>
-		    	<input type="text" class="form-control"
-		    		id="inputFechaFin" name="inputFechaFin" placeholder="Fecha de finalización (si se conociera)"
-		    		#fechaFin="ngModel" [(ngModel)]="nuevoOperativo.fechaFin">
-		    </div>
-		    <br>
-		    <input type="submit" name="btnAgregar" value="Agregar" class="btn btn-primary">
-		</form>
-
+		<operativoFormulario></operativoFormulario>
 	</div>
+
+
 </div>
