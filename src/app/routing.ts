@@ -1,14 +1,14 @@
 import {ModuleWithProviders} from "@angular/core";
 import {Routes,RouterModule} from "@angular/router";
 
-import {OperativoComponent} from "@app/components/operativo.component";
-import {HomeComponent} from "@app/components/home.component";
+import {OperativoTableComponent} from "@app/operativos/operativo-table/operativo-table.component";
+import {HomeComponent} from "@app/home/home.component";
 
 
 const appRoutes: Routes =[
 	{path:"", component:HomeComponent},
 	{path:"home", component: HomeComponent},
-	{path:"operativos", component: OperativoComponent },
+	{path:"operativos", component: OperativoTableComponent },
 	{path:"**", component: HomeComponent},
 ];
 

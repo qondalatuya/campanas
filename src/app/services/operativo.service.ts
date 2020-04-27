@@ -1,31 +1,29 @@
 import {Injectable} from "@angular/core";
 
 import {Operativo} from "@app/models/operativo";
+import { Observable,of, Subject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { apiUrl,httpHeader } from './global';
 
 @Injectable()
 export class OperativoService{
 
-	public operativos:Operativo[];
+	public operativoAgregado$:Subject<Operativo>= new Subject();
 
-	constructor(){
-		this.operativos = [
-		new Operativo("Odontologia", "escuelas del interior","08/03/2020",null,"Chaco","Las Breñas",false),
-		new Operativo("Salud rural", "zona urbana","08/03/2020",null,"Chaco","Cote Lai",false)
-		]
+	constructor (
+		private _http:HttpClient
+	){}
+
+	agregar$(operativo:Operativo){
+		let headers = new HttpHeaders().set('Content-Type','application/json');
+		console.log(JSON.stringify(operativo));
+		return this._http.post<Operativo>(apiUrl+"operativos/agregar",JSON.stringify(operativo),{headers});
 	}
 
-	agregar(operativo:Operativo){
-		this.operativos.push(operativo);
-	}
-
-	listar(){
-		return this.operativos;
+	listar$(){
+		return this._http.get<Operativo[]>(apiUrl+"operativos");
 	}
 	
-
-	probar(){
-		console.log(this.operativos);
-	}
 
 }
 

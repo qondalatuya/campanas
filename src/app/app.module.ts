@@ -1,31 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule,ReactiveFormsModule} from "@angular/forms";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {ActivatedRoute} from "@angular/router"
 
 import { AppComponent } from './app.component';
-import {HomeComponent} from "@app/components/home.component";
-import {OperativoComponent} from "@app/components/operativo.component";
-import {OperativoFormularioComponent} from "@app/components/operativo.formulario.component";
+import {HomeComponent} from "@app/home/home.component";
+import {OperativoTableComponent} from "@app/operativos/operativo-table/operativo-table.component";
+import {OperativoFormComponent} from "@app/operativos/operativo-form/operativo.form.component";
 
 import {OperativoService} from "@app/services/operativo.service";
 import {DataFactory} from "@app/services/datafactory";
 
-import {appRoutingProviders,routing} from "@app/routing";
+import {AppRoutingModule} from "./app.routing.module";
+import { OperativosModule } from './operativos/operativos.module';
+import { FichasModule } from './fichas/fichas.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    OperativoComponent,
-    OperativoFormularioComponent,
+    AppComponent,    
     HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    routing
+    AppRoutingModule,
+    HttpClientModule,
+    
+    OperativosModule,
+    FichasModule
+    
   ],
-  providers: [appRoutingProviders,OperativoService,DataFactory],
+  providers: [OperativoService,DataFactory],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
