@@ -33,7 +33,6 @@ export class DataFactory{
 	savePersona$( persona:Persona){
 		let headers = new HttpHeaders().set('Content-Type','application/json');
 		let body=JSON.stringify(persona);
-		console.log(body);
 		return(this._http.post<Persona>(apiUrl+"personas/agregar",body,{headers}))
 	}
 

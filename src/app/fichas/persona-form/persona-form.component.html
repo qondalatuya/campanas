@@ -1,0 +1,40 @@
+
+<form  (ngSubmit)="buscarDNI()" >
+    <div class="input-group">
+        <span for="inputDNI" class="input-group-addon"> <i class="glyphicon glyphicon-search"></i></span>
+        <input id="inputDNI"  class="form-control" name="dni" placeholder="Ingrese DNI" 
+            #dni="ngModel" type="number" [(ngModel)]="dniBusqueda">
+    </div>
+
+    <input #botoncito  type="submit" value="Buscar" class="btn btn-default" >
+</form>
+<br>
+<div *ngIf="encontrado" style="border: 1px solid;">
+    <p>{{nuevaPersona.dni}}</p>
+    <p>{{nuevaPersona.nombre}}</p>
+    <p>{{nuevaPersona.apellido}}</p>
+    <p>{{nuevaPersona.id}}</p>
+</div>
+
+<div *ngIf="!encontrado && buscado">
+    <form (ngSubmit)="agregar()">
+        <p>{{nuevaPersona.dni}}</p>
+        <div class="input-group">
+            <span for="inputApellido" class="input-group-addon">Apellido</span>
+            <input id="inputApellido" class="form-control" name="apellido" placeholder="Ingrese el apelldido"
+            #apellido="ngModel" type="text" [(ngModel)]="nuevaPersona.apellido">
+        </div>
+        <div class="input-group">
+            <span for="inputNombre" class="input-group-addon"> Nombre</span>
+            <input id="inputNombre"  class="form-control" name="nombre" placeholder="Ingrese el nombre" 
+                #nombre="ngModel" type="text" [(ngModel)]="nuevaPersona.nombre">
+        </div>
+        
+        <input type="submit" value="Agregar">
+    </form>
+
+    <div #alerta class="alert alert-success">
+        <strong>Éxito</strong> Se guardaron los datos de la persona
+    </div>
+
+</div>

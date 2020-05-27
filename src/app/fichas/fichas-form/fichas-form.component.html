@@ -1,0 +1,10 @@
+<p>fichas-form works!</p>
+<persona-form (seleccionPersona)="setPersona($event)" ></persona-form>
+<br>
+<form #formFicha="ngForm" (ngSubmit)="guardarFicha()">
+    <div class="input-group">
+        <span class="input-group-addon"> Fecha de atención</span>
+        <input class="form-control" type="date" data-date-format="DD MMMM YYYY" name="fecha" [(ngModel)]="ficha.fechaAtencion" style="padding-top: 0px;">
+    </div>
+    <input type="submit" value="Guardar" class="btn btn-default"> 
+</form>
