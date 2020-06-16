@@ -1,10 +1,13 @@
 import {Component, OnInit, OnDestroy} from "@angular/core";
+import { Observable, Subscription } from 'rxjs';
 
 import {Operativo} from "@app/models/operativo";
 
 import {OperativoService} from "@app/services/operativo.service";
 import {DataFactory} from "@app/services/datafactory";
-import { Observable, Subscription } from 'rxjs';
+
+
+
 
 @Component({
 	selector: "operativo-table",
@@ -13,7 +16,7 @@ import { Observable, Subscription } from 'rxjs';
 export class OperativoTableComponent implements OnInit,OnDestroy{
 	
 	public operativos:Operativo[];	
-	public subscription:Subscription;
+	public subscriptionAgregado:Subscription;
 	
 	constructor(
 		public _operativoService:OperativoService,		
@@ -31,18 +34,37 @@ export class OperativoTableComponent implements OnInit,OnDestroy{
 				console.log(<any>error)
 			}
 		)		
-		this.subscription=this._operativoService.operativoAgregado$.subscribe(
+		this.subscriptionAgregado=this._operativoService.operativoAgregado$.subscribe(
 			operativo =>this.operativos.push(operativo)
 		)
 	}
 
 	ngOnDestroy(){
-		this.subscription.unsubscribe();
+		this.subscriptionAgregado.unsubscribe();
 	}
 
 	public abrirOperativo(operativo){
 		console.log(operativo);
-		window.open("fichas",operativo.id);
+		window.open("fichas/" + operativo.id);
+	}
+
+	public borrarOperativo(operativo){
+		this._operativoService.borrarOperativo$(operativo.id).subscribe(
+			result=>{
+				//este codigo hay que reemplazar
+				this._operativoService.listar$().subscribe(
+					result=>{
+						this.operativos=result
+					},
+					error=>{
+						console.log(<any>error)
+					}
+				)	
+			},
+			error=>{
+				console.log(error)
+			}
+		)
 	}
 
 }

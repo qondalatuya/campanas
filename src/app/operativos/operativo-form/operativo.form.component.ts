@@ -4,9 +4,11 @@ import {Operativo} from "@app/models/operativo";
 
 import {OperativoService} from "@app/services/operativo.service";
 import {DataFactory} from "@app/services/datafactory";
+import {Ficha} from "@app/models/ficha";
 import { Provincia } from '@app/models/provincia';
 import { Localidad } from '@app/models/localidad';
 import { TipoCampana } from '@app/models/tipocampana';
+
 
 @Component({
 	selector: "operativo-form",
@@ -49,7 +51,7 @@ export class OperativoFormComponent{
 
 	onSubmit(){
 			this._operativoService.agregar$(this.nuevoOperativo).subscribe(
-				result =>{
+				result =>{					
 					this._operativoService.operativoAgregado$.next(result);
 					this.nuevoOperativo=new Operativo(0,null,null,null,null,null,null,false,null);			
 				},error=>{

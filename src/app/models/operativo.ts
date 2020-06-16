@@ -1,6 +1,7 @@
 import { Provincia } from './provincia';
 import { Localidad } from './localidad';
 import { TipoCampana } from './tipocampana';
+import { Ficha } from './ficha';
 
 export class Operativo{
 	constructor(
@@ -12,7 +13,7 @@ export class Operativo{
 		public provincia:Provincia,
 		public localidad:Localidad,
 		public finalizado:boolean,
-		public fichas:Operativo[]
+		public fichas:Ficha[]
 		)
 	{
 

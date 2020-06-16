@@ -15,11 +15,13 @@ import {DataFactory} from "@app/services/datafactory";
 import {AppRoutingModule} from "./app.routing.module";
 import { OperativosModule } from './operativos/operativos.module';
 import { FichasModule } from './fichas/fichas.module';
+import { ErrorComponent } from './home/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,    
-    HomeComponent
+    HomeComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,7 @@ import { FichasModule } from './fichas/fichas.module';
     FichasModule
     
   ],
+  exports:[  ],
   providers: [OperativoService,DataFactory],
   bootstrap: [AppComponent]
 })

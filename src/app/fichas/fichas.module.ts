@@ -5,6 +5,7 @@ import { PersonaFormComponent } from './persona-form/persona-form.component';
 import { FichasComponent } from './fichas.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from '@app/shared/shared.module';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   exports:[FichasComponent]
 })

@@ -28,10 +28,16 @@ export class OperativoService{
 		return this._http.get<Operativo>(apiUrl+"operativos/"+id);
 	}
 
+	borrarOperativo$ (id:number){
+		return this._http.delete<Operativo>(apiUrl+"operativos/borrar/"+id);
+	}
+
 	agregarFicha$(ficha:Ficha){
 		let headers = new HttpHeaders().set('Content-Type','application/json');
 		return this._http.post<Ficha>(apiUrl+"fichas/"+ ficha.operativo.id +"/agregar",JSON.stringify(ficha),{headers});
 	}
+
+
 	
 
 }

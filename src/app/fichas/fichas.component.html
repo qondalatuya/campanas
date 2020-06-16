@@ -1,7 +1,15 @@
 <div id="content">
-    <fichas-form (fichaAgregada)="fichaAgregada($event)" [operativo]="operativo"></fichas-form>
+    
+    <h2 >Operativo Nro {{operativo.id}} - {{operativo.tipo.nombre}}</h2>
 
-    <br>
+    <h3>{{operativo.localidad.nombre}} - {{operativo.localidad.provincia.nombre}}</h3>
+    <p>Fecha de inicio: {{operativo.fechaInicio |fecha}} </p>
+    <p>Fecha de Finalizacion: {{operativo.fechaFin|fecha}}</p>
+
+    <hr>
+    <fichas-form (fichaAgregada)="fichaAgregada($event)" [operativo]="operativo" ></fichas-form>
+
+    <hr>
 
     <div *ngIf="operativo">
         <table class="table table-hover table-bordered">
