@@ -33,6 +33,7 @@ import { ErrorComponent } from './home/error.component';
     OperativosModule,
     FichasModule
     
+    
   ],
   exports:[  ],
   providers: [OperativoService,DataFactory],
