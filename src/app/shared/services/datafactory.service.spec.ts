@@ -4,8 +4,8 @@ import {timer} from "rxjs";
 
 import {HttpClientTestingModule,HttpTestingController}from"@angular/common/http/testing"
 
-import {DataFactory}from"../services/datafactory";
-import {apiOSPRERA, apiOSPRERAProvincias}from"../values"
+import {DataFactory}from"./datafactory.service";
+import {APIOSPRERA, APIOSPRERAPROVINCIAS}from"../values"
 
 import { Provincia } from '../models/provincia.interface';
 
@@ -76,7 +76,7 @@ describe("prueba del service con MockHttp",()=>{
             }
         );
         //aca es donde le digo que atrape todas als peticiones a la api
-        const req = httpMock.expectOne(apiOSPRERAProvincias);
+        const req = httpMock.expectOne(APIOSPRERAPROVINCIAS);
 
         expect(req.request.method).toBe("GET");
 

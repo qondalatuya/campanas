@@ -5,7 +5,12 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FechaPipe } from './pipes/fechaPipe';
 import { BooleanPipe } from './pipes/booleanPipe';
 import { ProvinciaSelecComponent } from './provincia-selec/provincia-selec.component';
-import {DataFactory} from "./services/datafactory";
+
+import {DataFactory} from "./services/datafactory.service";
+import {NotifierService} from "./services/notifier.service.service";
+
+import { PreviewComponent } from './preview/preview.component';
+import { LocalidadSelecComponent } from './localidad-selec/localidad-selec.component';
 
 
 
@@ -14,7 +19,9 @@ import {DataFactory} from "./services/datafactory";
   declarations: [
     FechaPipe,
     BooleanPipe,
-    ProvinciaSelecComponent
+    ProvinciaSelecComponent,
+    PreviewComponent,
+    LocalidadSelecComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +32,6 @@ import {DataFactory} from "./services/datafactory";
     BooleanPipe,
     ProvinciaSelecComponent,
   ],
-  providers:[DataFactory]
+  providers:[DataFactory,NotifierService]
 })
 export class SharedModule { }

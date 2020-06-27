@@ -1,8 +1,8 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 
-import {DataFactory} from "../services/datafactory";
+import {DataFactory} from "../services/datafactory.service";
 import { Provincia } from '../models/provincia.interface';
-import { doesNotReject } from 'assert';
+import { NotifierService } from '../services/notifier.service.service';
 
 
 @Component({
@@ -19,6 +19,7 @@ export class ProvinciaSelecComponent implements OnInit {
 
   constructor(
     private _dataFactory:DataFactory,
+    private _notifier:NotifierService
     ) 
   { }
 
@@ -31,5 +32,10 @@ export class ProvinciaSelecComponent implements OnInit {
         console.log(error);
       }
     )
+  }
+
+  onSelect(prov:Provincia){
+    this._notifier.cambioProvincia.next(prov);
+    return this.provinciaSeleccionada.next(prov);
   }
 }

@@ -1,0 +1,27 @@
+<div>
+    <provincia-selec (provinciaSeleccionada)="cambioProvincia($event)" ></provincia-selec>
+</div>
+
+<!--escucha los cambios de <provincia-selec -->
+<div>
+    <localidad-selec ></localidad-selec>
+</div>
+
+
+<!--le paso una id de provincia y va a buscar a la api-->
+<div>
+    <localidad-selec [provinciaId]="5" ></localidad-selec>
+</div>
+
+
+
+<!-- o directamente un objeto provincia-->
+<div>
+    <localidad-selec [provincia]="{Id:6,Descripcion:'CHACO'}" ></localidad-selec>
+</div>
+
+<!-- si no deseo que escuche los cabmios en <provincia-selec>  lo puedo hacer así-->
+<div>
+    <localidad-selec [provinciaId]="7" [provinciaFija]="true" ></localidad-selec>
+</div>
+

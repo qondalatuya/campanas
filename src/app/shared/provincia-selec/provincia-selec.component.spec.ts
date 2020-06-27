@@ -5,7 +5,7 @@ import {timer, of, Observable} from "rxjs";
 
 
 import { ProvinciaSelecComponent } from './provincia-selec.component';
-import {DataFactory}from"../services/datafactory";
+import {DataFactory}from"../services/datafactory.service";
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { Provincia } from '../models/provincia.interface';
 
