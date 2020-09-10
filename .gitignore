@@ -46,3 +46,5 @@ testem.log
 .DS_Store
 Thumbs.db
 .gitignore
+package - copia.json
+package-lock - copia.json
