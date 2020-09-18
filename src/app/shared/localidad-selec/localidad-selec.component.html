@@ -1,6 +1,6 @@
-<select>
-    <option disabled ></option>
-    <option *ngFor="let localidad of localidades">{{localidad.Descripcion}}</option>
+<select [(ngModel)]="localidad" (change)="onSelect()">
+    <option disabled > Seleccione una localidad</option>
+    <option *ngFor="let localidad of localidades" [ngValue]="localidad">{{localidad.Descripcion}}</option>
 </select>
 
 

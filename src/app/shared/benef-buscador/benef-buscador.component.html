@@ -1,0 +1,12 @@
+<div class="container">
+
+    <form #busquedaAfiliado="ngForm">
+        <input type="number" [(ngModel)]="dniInput" name="dni">
+        <button (click)="buscarBeneficiario();busquedaAfiliado.reset()" >Buscar Beneficiario</button>
+    </form>
+    
+    <div *ngIf="!encontrado">   
+        <p>Beneficiario no encontrado</p>
+    </div>
+</div>
+

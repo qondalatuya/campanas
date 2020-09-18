@@ -1,27 +1,35 @@
-<div>
-    <provincia-selec (provinciaSeleccionada)="cambioProvincia($event)" ></provincia-selec>
-</div>
+
+<!--se usa el output para sacar datos del componente-->
+<!-- <div>
+<provincia-selec (provinciaSeleccionada)="cambioProvincia($event)" ></provincia-selec>
+</div> -->
+
+<!-- tambien se puede suscribir al notifier y obtener de ahí valor seleccionado de la provincia-->
+<!-- <div>
+    <provincia-selec></provincia-selec>
+</div> -->
+
 
 <!--escucha los cambios de <provincia-selec -->
-<div>
-    <localidad-selec ></localidad-selec>
-</div>
-
+<!-- <div>
+    <localidad-selec (localidadSeleccionada)="cambioLocalidad($event)"></localidad-selec>
+</div> -->
 
 <!--le paso una id de provincia y va a buscar a la api-->
-<div>
+<!-- <div>
     <localidad-selec [provinciaId]="5" ></localidad-selec>
-</div>
-
-
+</div> -->
 
 <!-- o directamente un objeto provincia-->
-<div>
+<!-- <div>
     <localidad-selec [provincia]="{Id:6,Descripcion:'CHACO'}" ></localidad-selec>
-</div>
+</div> -->
 
 <!-- si no deseo que escuche los cabmios en <provincia-selec>  lo puedo hacer así-->
-<div>
+<!-- <div>
     <localidad-selec [provinciaId]="7" [provinciaFija]="true" ></localidad-selec>
-</div>
+</div> -->
+<benef-buscador (cambioBeneficiario)="cambioBeneficiario($event)"></benef-buscador>
+<benef-datos [beneficiario]="beneficiario"></benef-datos>
+
 

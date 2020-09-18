@@ -13,6 +13,7 @@ import { NotifierService } from '../services/notifier.service.service';
 export class ProvinciaSelecComponent implements OnInit {
 
   public provincias:Provincia[]=new Array<Provincia>();
+  public provincia:Provincia;
   
   @Output()
   public provinciaSeleccionada:EventEmitter<Provincia>=new EventEmitter<Provincia>();
@@ -34,8 +35,8 @@ export class ProvinciaSelecComponent implements OnInit {
     )
   }
 
-  onSelect(prov:Provincia){
-    this._notifier.cambioProvincia.next(prov);
-    return this.provinciaSeleccionada.next(prov);
+  onSelect(){
+    this._notifier.cambioProvincia.next(this.provincia);//avisa al notifier
+    return this.provinciaSeleccionada.next(this.provincia); //retorna el evento para el @output
   }
 }

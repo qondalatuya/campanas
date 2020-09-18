@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataFactory } from '../services/datafactory.service';
 import { Provincia } from '../models/provincia.interface';
@@ -27,6 +27,10 @@ export class LocalidadSelecComponent implements OnInit,OnDestroy {
   public provinciaFija:boolean=false;
 
   public localidades:Localidad[];
+  
+  @Output()
+  public localidadSeleccionada:EventEmitter<Localidad> = new EventEmitter();
+  public localidad:Localidad;
 
   constructor( private dataFactory:DataFactory, private notifier:NotifierService) {   }  
 
@@ -69,6 +73,10 @@ export class LocalidadSelecComponent implements OnInit,OnDestroy {
         console.log(error);
       }
     )
+  }
+
+  onSelect(){
+    return this.localidadSeleccionada.next(this.localidad)
   }
 
 

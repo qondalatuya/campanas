@@ -1,3 +1,4 @@
-<select id="provincia-selec">
-    <option *ngFor="let provincia of provincias" (click)="onSelect(provincia)"  >{{provincia.Descripcion}}</option>
+<select id="provincia-selec" [(ngModel)]="provincia" (change)="onSelect()"  >
+    <option disabled>seleccione una provincia </option>
+    <option *ngFor="let provincia of provincias" [ngValue]="provincia" >{{provincia.Descripcion}}</option>
 </select>

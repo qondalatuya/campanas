@@ -11,6 +11,10 @@ import {NotifierService} from "./services/notifier.service.service";
 
 import { PreviewComponent } from './preview/preview.component';
 import { LocalidadSelecComponent } from './localidad-selec/localidad-selec.component';
+import { FormsModule } from '@angular/forms';
+import { AfiliadosService } from './services/afiliados.service';
+import { BenefBuscadorComponent } from './benef-buscador/benef-buscador.component';
+import { BenefDatosComponent } from './benef-datos/benef-datos.component';
 
 
 
@@ -21,17 +25,20 @@ import { LocalidadSelecComponent } from './localidad-selec/localidad-selec.compo
     BooleanPipe,
     ProvinciaSelecComponent,
     PreviewComponent,
-    LocalidadSelecComponent
+    LocalidadSelecComponent,
+    BenefBuscadorComponent,
+    BenefDatosComponent
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   exports:[
     FechaPipe,
     BooleanPipe,
     ProvinciaSelecComponent,
   ],
-  providers:[DataFactory,NotifierService]
+  providers:[DataFactory,NotifierService,AfiliadosService]
 })
 export class SharedModule { }
